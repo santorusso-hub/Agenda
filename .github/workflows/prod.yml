@@ -25,3 +25,11 @@ jobs:
       - name: Push image docker
         run: docker push santo32/agenda
 
+  deploy:
+    needs: build
+    runs-on: self-hosted
+    steps:
+      - name: Pull image from docker hub
+        run: docker pull santo32/agenda:latest
+      - name: Remove docker container
+        run: docker run -d -p 2025:2025 --name agenda santo32/agenda
