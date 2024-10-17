@@ -24,6 +24,9 @@ jobs:
         run: docker build -t santo32/agenda .
       - name: Push image docker
         run: docker push santo32/agenda
+      - name: Build Docker Image
+        run: |
+          DOCKER_BUILDKIT=1 docker build -t my-image .
 
   deploy:
     needs: build
@@ -35,3 +38,5 @@ jobs:
         run: docker rm -f agenda
       - name: Remove docker container
         run: docker run -d -p 2027:2027 --name agenda santo32/agenda
+
+        
