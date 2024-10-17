@@ -32,4 +32,4 @@ jobs:
       - name: Pull image from docker hub
         run: docker pull santo32/agenda:latest
       - name: Remove docker container
-        run: docker run -d -p 2026:2026 --name agenda santo32/agenda
+        run: docker run -d -p 2027:2027 --name agenda santo32/agenda
